@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/12 17:20:50 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/13 14:00:36 by fgracefo         ###   ########.fr       */
+/*   Created: 2019/09/12 01:56:19 by fgracefo          #+#    #+#             */
+/*   Updated: 2019/09/12 02:04:25 by fgracefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strdup(const char *src)
 {
-	size_t			i;
-	unsigned char	*str1;
-	unsigned char	*str2;
+	int		i;
+	char	*str;
 
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
 	i = 0;
-	if (n == 0)
-		return (0);
-	while (++i < n && *str1 == *str2)
+	while (src[i])
+		i++;
+	str = (char *)malloc(sizeof(char) * i + 1);
+	if (str)
 	{
-		str1++;
-		str2++;
+		i = 0;
+		while (src[i])
+		{
+			str[i] = src[i];
+			i++;
+		}
+		str[i] = '\0';
+		return (str);
 	}
-	return (*str1 - *str2);
+	else
+		return (NULL);
 }
