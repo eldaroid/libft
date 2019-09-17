@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/14 19:05:57 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/17 18:38:15 by fgracefo         ###   ########.fr       */
+/*   Created: 2019/09/17 17:48:09 by fgracefo          #+#    #+#             */
+/*   Updated: 2019/09/17 18:50:08 by fgracefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	int	res;
-	int	negative;
+	char	*new;
+	int		i;
 
-	negative = 1;
-	res = 0;
-	while (ft_isspace(*str))
-		++str;
-	if (*str == '-')
-		negative = -1;
-	if (*str == '-' || *str == '+')
-		++str;
-	while (ft_isdigit(*str))
+	i = 0;
+	if ((new = (char *)malloc(sizeof(char) * len + 1)) && s)
 	{
-		res = res * 10 + (*str - 48);
-		++str;
+		while (*(s + start) && len-- > 0)
+		{
+			new[i] = *(s + start);
+			start++;
+			i++;
+		}
+		new[i] = '\0';
 	}
-	return (res * negative);
+	return (new);
 }

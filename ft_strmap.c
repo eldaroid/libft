@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/14 19:05:57 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/17 18:38:15 by fgracefo         ###   ########.fr       */
+/*   Created: 2019/09/17 16:40:47 by fgracefo          #+#    #+#             */
+/*   Updated: 2019/09/17 16:56:06 by fgracefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	int	res;
-	int	negative;
+	char	*str;
+	int		i;
 
-	negative = 1;
-	res = 0;
-	while (ft_isspace(*str))
-		++str;
-	if (*str == '-')
-		negative = -1;
-	if (*str == '-' || *str == '+')
-		++str;
-	while (ft_isdigit(*str))
+	i = 0;
+	while (s[i])
+		i++;
+	str = (char *)malloc(sizeof(char) * i + 1);
+	if (s && str)
 	{
-		res = res * 10 + (*str - 48);
-		++str;
+		i = 0;
+		while (s[i])
+		{
+			str[i] = f(s[i]);
+			i++;
+		}
+		str[i] = '\0';
+		return (str);
 	}
-	return (res * negative);
+	else
+		return (NULL);
 }

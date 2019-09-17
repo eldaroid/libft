@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/14 19:05:57 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/17 18:38:15 by fgracefo         ###   ########.fr       */
+/*   Created: 2019/09/17 17:30:49 by fgracefo          #+#    #+#             */
+/*   Updated: 2019/09/17 19:32:08 by fgracefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+int	ft_strequ(char const *s1, char const *s2)
 {
-	int	res;
-	int	negative;
-
-	negative = 1;
-	res = 0;
-	while (ft_isspace(*str))
-		++str;
-	if (*str == '-')
-		negative = -1;
-	if (*str == '-' || *str == '+')
-		++str;
-	while (ft_isdigit(*str))
+	if (ft_strlen((char *)s1) != ft_strlen((char *)s2) || !s1 || !s2)
+		return (0);
+	while (*s1 && *s2)
 	{
-		res = res * 10 + (*str - 48);
-		++str;
+		if (*s1 != *s2)
+			return (0);
+		s1++;
+		s2++;
 	}
-	return (res * negative);
+	return (1);
 }

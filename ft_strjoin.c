@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/14 19:05:57 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/17 18:38:15 by fgracefo         ###   ########.fr       */
+/*   Created: 2019/09/17 18:14:54 by fgracefo          #+#    #+#             */
+/*   Updated: 2019/09/17 18:32:22 by fgracefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	res;
-	int	negative;
+	size_t	size;
+	char	*new;
 
-	negative = 1;
-	res = 0;
-	while (ft_isspace(*str))
-		++str;
-	if (*str == '-')
-		negative = -1;
-	if (*str == '-' || *str == '+')
-		++str;
-	while (ft_isdigit(*str))
+	size = 0;
+	if (s1 || s2)
+		size = ft_strlen((char *)s1) + ft_strlen((char *)s2);
+	if ((new = (char *)malloc(sizeof(char) * size + 1)) && (s1 || s2))
 	{
-		res = res * 10 + (*str - 48);
-		++str;
+		size = 0;
+		while (*s1)
+		{
+			new[size] = *s1;
+			size++;
+			s1++;
+		}
+		while (*s2)
+		{
+			new[size] = *s2;
+			size++;
+			s2++;
+		}
+		return (new);
 	}
-	return (res * negative);
+	return (NULL);
 }
