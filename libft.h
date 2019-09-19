@@ -6,7 +6,7 @@
 /*   By: eldaroid <eldaroid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 18:23:03 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/19 14:41:49 by eldaroid         ###   ########.fr       */
+/*   Updated: 2019/09/19 16:20:40 by eldaroid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	**ft_strsplit(char const *s, char c);
 void	ft_putstr(char const *s);
 void	ft_putchar(char c);
 void	ft_putendl(char const *s);
-void	t_putchar_fd(char c, int fd);
+void	ft_putchar_fd(char c, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putnbr(int n);
 
