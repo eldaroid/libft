@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eldaroid <eldaroid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 18:23:03 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/19 21:17:27 by fgracefo         ###   ########.fr       */
+/*   Updated: 2019/09/20 14:21:04 by eldaroid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct		s_list
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
-}					t_list
+}					t_list;
 
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *b, int c, size_t len);
