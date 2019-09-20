@@ -6,7 +6,7 @@
 /*   By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 20:09:26 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/13 18:49:05 by fgracefo         ###   ########.fr       */
+/*   Updated: 2019/09/20 19:04:40 by fgracefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	if (!*str)
 		*str1 = *str;
 	return (dst);
-
 }

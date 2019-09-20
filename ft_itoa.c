@@ -6,13 +6,13 @@
 /*   By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 19:04:40 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/19 20:43:49 by fgracefo         ###   ########.fr       */
+/*   Updated: 2019/09/20 19:04:06 by fgracefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		count_num(int n)
+static int	count_num(int n)
 {
 	int		count;
 
@@ -31,7 +31,7 @@ int		count_num(int n)
 	return (0);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	char	*num;
 	int		size;

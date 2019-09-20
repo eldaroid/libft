@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eldaroid <eldaroid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 19:57:46 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/19 14:17:06 by eldaroid         ###   ########.fr       */
+/*   Updated: 2019/09/20 19:03:45 by fgracefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		count_words(char const *s, char c)
+static int	count_words(char const *s, char c)
 {
 	int		flag;
 	int		i;
@@ -35,7 +35,7 @@ int		count_words(char const *s, char c)
 	return (count);
 }
 
-int		count_letter(char const *s, int i, char c)
+static int	count_letter(char const *s, int i, char c)
 {
 	int		count;
 
@@ -48,7 +48,7 @@ int		count_letter(char const *s, int i, char c)
 	return (count);
 }
 
-int		ft_free(char **new)
+static int	ft_free(char **new)
 {
 	int		i;
 
@@ -60,7 +60,7 @@ int		ft_free(char **new)
 	return (0);
 }
 
-int		change_new(char **new, char const *s, char c)
+static int	change_new(char **new, char const *s, char c)
 {
 	int		i;
 	int		j;
@@ -84,7 +84,7 @@ int		change_new(char **new, char const *s, char c)
 	return (1);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
 	char	**new;
 	int		j;
