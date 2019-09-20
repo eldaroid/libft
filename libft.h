@@ -6,7 +6,7 @@
 /*   By: eldaroid <eldaroid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 18:23:03 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/20 14:21:04 by eldaroid         ###   ########.fr       */
+/*   Updated: 2019/09/20 18:00:35 by eldaroid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,9 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putnbr(int n);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char const *s, int fd);
-char	*ft_itoa(int n);
+char	*ft_itoa(int n);char	*ft_strjoinch(char const *s1, char c);
+int		ft_count_words(char const *s, char c);
+int		ft_count_letter(char const *s, int i, char c);
+t_list	*ft_lstnew(void const *content, size_t content_size);
 
 #endif
