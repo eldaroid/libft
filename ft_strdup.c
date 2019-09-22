@@ -6,7 +6,7 @@
 /*   By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/12 01:56:19 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/12 02:04:25 by fgracefo         ###   ########.fr       */
+/*   Updated: 2019/09/22 23:38:22 by fgracefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ char	*ft_strdup(const char *src)
 	char	*str;
 
 	i = 0;
-	while (src[i])
-		i++;
-	str = (char *)malloc(sizeof(char) * i + 1);
-	if (str)
+	if ((str = (char *)malloc(sizeof(char) * ft_strlen(src) + 1)))
 	{
 		i = 0;
 		while (src[i])
@@ -32,6 +29,5 @@ char	*ft_strdup(const char *src)
 		str[i] = '\0';
 		return (str);
 	}
-	else
-		return (NULL);
+	return (NULL);
 }

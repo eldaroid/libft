@@ -6,7 +6,7 @@
 /*   By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 18:14:54 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/22 18:47:55 by fgracefo         ###   ########.fr       */
+/*   Updated: 2019/09/22 21:45:30 by fgracefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size = 0;
 	if (s1 && s2)
 		size = ft_strlen((char *)s1) + ft_strlen((char *)s2);
-	else if (!s1)
+	else if (s1)
 		return (ft_strdup(s2));
-	else if (!s2)
+	else if (s2)
 		return (ft_strdup(s1));
+	else
+		return (NULL);
 	if ((new = (char *)malloc(sizeof(char) * size)) && (s1 || s2))
 	{
 		size = 0;
