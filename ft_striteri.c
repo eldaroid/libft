@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eldaroid <eldaroid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/15 19:53:15 by eldaroid          #+#    #+#             */
-/*   Updated: 2019/09/15 20:00:34 by eldaroid         ###   ########.fr       */
+/*   Updated: 2019/09/22 18:05:28 by fgracefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	size_t	i;
 
 	i = 0;
+	if (!s || !f)
+		return ;
 	while (*s)
 	{
 		f(i, &(*s));
 		s++;
 		i++;
 	}
-	return ;
 }

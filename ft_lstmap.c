@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eldaroid <eldaroid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/22 14:10:46 by eldaroid          #+#    #+#             */
-/*   Updated: 2019/09/22 14:40:22 by eldaroid         ###   ########.fr       */
+/*   Updated: 2019/09/22 17:29:55 by fgracefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*new;
 	t_list	*func;
-	
+
 	if (!lst)
 		return (NULL);
 	new = f(lst);
@@ -31,7 +31,6 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 			return (NULL);
 		}
 		func = func->next;
-		
 	}
 	return (new);
 }

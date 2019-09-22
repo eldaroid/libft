@@ -6,7 +6,7 @@
 /*   By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 17:03:17 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/17 17:41:13 by fgracefo         ###   ########.fr       */
+/*   Updated: 2019/09/22 18:16:22 by fgracefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		i;
 
 	i = 0;
+	if (!s || !f)
+		return (NULL);
 	while (s[i])
 		i++;
 	str = (char *)malloc(sizeof(char) * i + 1);
-	if (s && str)
+	if (s && str && f)
 	{
 		i = 0;
 		while (s[i])

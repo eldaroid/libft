@@ -6,7 +6,7 @@
 /*   By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 16:40:47 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/17 16:56:06 by fgracefo         ###   ########.fr       */
+/*   Updated: 2019/09/22 18:14:24 by fgracefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	int		i;
 
 	i = 0;
+	if (!s || !f)
+		return (NULL);
 	while (s[i])
 		i++;
 	str = (char *)malloc(sizeof(char) * i + 1);
-	if (s && str)
+	if (s && str && f)
 	{
 		i = 0;
 		while (s[i])
@@ -32,6 +34,5 @@ char	*ft_strmap(char const *s, char (*f)(char))
 		str[i] = '\0';
 		return (str);
 	}
-	else
-		return (NULL);
+	return (NULL);
 }

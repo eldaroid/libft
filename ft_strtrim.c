@@ -6,7 +6,7 @@
 /*   By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 18:45:27 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/17 19:30:06 by fgracefo         ###   ########.fr       */
+/*   Updated: 2019/09/22 18:19:19 by fgracefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strtrim(char const *s)
 	char	*ret;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	while (ft_isspace(s[i]))
 		i++;
 	len = ft_strlen((char *)s);

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eldaroid <eldaroid@student.42.fr>          +#+  +:+       +#+         #
+#    By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/22 15:12:37 by eldaroid          #+#    #+#              #
-#    Updated: 2019/09/22 15:30:39 by eldaroid         ###   ########.fr        #
+#    Updated: 2019/09/22 17:43:50 by fgracefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,12 +73,14 @@ SRC = 	ft_memset.c \
 		ft_count_letter.c\
 		ft_count_words.c \
 		ft_isspace.c \
+		ft_islower.c \
+		ft_isupper.c \
 
 OFILE = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(OFILE) libft.h
 		gcc -Wall -Wextra -Werror -c $(SRC) 
 		ar rc $(NAME) $(OFILE)
 		ranlib $(NAME)
@@ -88,6 +90,7 @@ clean:
 
 fclean: clean
 		rm -f $(NAME)
+
 re: fclean all
 
 .PHONY: clean fclean all re
