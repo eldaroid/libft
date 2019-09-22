@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eldaroid <eldaroid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/14 19:26:48 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/22 15:05:13 by eldaroid         ###   ########.fr       */
+/*   Created: 2019/09/21 18:38:19 by eldaroid          #+#    #+#             */
+/*   Updated: 2019/09/22 14:06:03 by eldaroid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalnum(int c)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	return (ft_isalpha(c) || ft_isdigit(c));
+	if (!alst || !*alst)
+		return ;
+	if((*alst)->next)
+		ft_lstdel(&(*alst)->next, del);
+	ft_lstdelone(&(*alst), del);
 }
