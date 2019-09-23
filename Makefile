@@ -6,7 +6,7 @@
 #    By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/22 15:12:37 by eldaroid          #+#    #+#              #
-#    Updated: 2019/09/23 16:09:33 by fgracefo         ###   ########.fr        #
+#    Updated: 2019/09/23 16:32:36 by fgracefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,11 +85,11 @@ $(NAME): $(OFILE)
 		ar rc $(NAME) $(OFILE)
 		ranlib $(NAME)
 
-%.o:%.c
-   gcc -Wall -Wextra -Werror $< -c -o $@
-
 clean:
 		rm -f $(OFILE)
+
+$(OBJ): %.o : %.c
+	gcc -Wall -Wextra -Werror -I. -c $<
 
 fclean: clean
 		rm -f $(NAME)
