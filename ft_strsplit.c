@@ -6,7 +6,7 @@
 /*   By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 19:57:46 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/20 19:03:45 by fgracefo         ###   ########.fr       */
+/*   Updated: 2019/09/23 15:58:56 by fgracefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static int	count_words(char const *s, char c)
 {
-	int		flag;
-	int		i;
-	int		count;
+	size_t		flag;
+	size_t		i;
+	size_t		count;
 
 	count = 1;
 	flag = 0;

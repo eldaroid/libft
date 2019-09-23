@@ -6,7 +6,7 @@
 /*   By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 17:48:09 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/17 18:50:08 by fgracefo         ###   ########.fr       */
+/*   Updated: 2019/09/23 15:59:08 by fgracefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
 	char	*new;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	if ((new = (char *)malloc(sizeof(char) * len + 1)) && s)

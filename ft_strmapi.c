@@ -6,7 +6,7 @@
 /*   By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 17:03:17 by fgracefo          #+#    #+#             */
-/*   Updated: 2019/09/22 18:16:22 by fgracefo         ###   ########.fr       */
+/*   Updated: 2019/09/23 15:58:33 by fgracefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*str;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	if (!s || !f)

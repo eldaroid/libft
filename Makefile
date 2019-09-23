@@ -6,7 +6,7 @@
 #    By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/22 15:12:37 by eldaroid          #+#    #+#              #
-#    Updated: 2019/09/22 17:43:50 by fgracefo         ###   ########.fr        #
+#    Updated: 2019/09/23 16:09:33 by fgracefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,10 +80,13 @@ OFILE = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OFILE) libft.h
+$(NAME): $(OFILE)
 		gcc -Wall -Wextra -Werror -c $(SRC) 
 		ar rc $(NAME) $(OFILE)
 		ranlib $(NAME)
+
+%.o:%.c
+   gcc -Wall -Wextra -Werror $< -c -o $@
 
 clean:
 		rm -f $(OFILE)
