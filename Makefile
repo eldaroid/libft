@@ -6,7 +6,7 @@
 #    By: fgracefo <fgracefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/22 15:12:37 by eldaroid          #+#    #+#              #
-#    Updated: 2019/09/23 16:32:36 by fgracefo         ###   ########.fr        #
+#    Updated: 2020/08/20 10:44:29 by fgracefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,24 +76,52 @@ SRC = 	ft_memset.c \
 		ft_islower.c \
 		ft_isupper.c \
 
-OFILE = $(SRC:.c=.o)
+CC = gcc
+FLAGS = -Wall -Wextra -Werror
 
+INCLUDES = -I $(HEADERS_DIR)
+HEADERS_LIST = libft.h
+HEADERS_DIR = header/
+
+HEADERS = $(addprefix $(HEADERS_DIR), $(HEADERS_LIST))
+
+SOURCES_DIR = src/
+
+SOURCES = $(addprefix $(SOURCES_DIR), $(SRC))
+
+
+
+OBJECTS_LIST = $(patsubst %.c, %.o, $(SRC))
+OBJECTS_DIR = objects/
+OBJECTS = $(addprefix $(OBJECTS_DIR), $(OBJECTS_LIST))
+	
 all: $(NAME)
 
-$(NAME): $(OFILE)
-		gcc -Wall -Wextra -Werror -c $(SRC) 
-		ar rc $(NAME) $(OFILE)
-		ranlib $(NAME)
+$(NAME): $(OBJECTS_DIR) $(OBJECTS)
+	@ar rc $@ $(OBJECTS)
+	@ranlib $@
+	@echo "\n$(NAME):object files were created"
+
+$(OBJECTS_DIR):
+	@mkdir -p $(OBJECTS_DIR)
+	@echo "$(NAME): $(OBJECTS_DIR) was created"
+
+$(OBJECTS_DIR)%.o : $(SOURCES_DIR)%.c $(HEADERS)
+	@$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
 
 clean:
-		rm -f $(OFILE)
-
-$(OBJ): %.o : %.c
-	gcc -Wall -Wextra -Werror -I. -c $<
+	@rm -rf $(OBJECTS_DIR)
+	@echo "$(NAME):object files were deleted"
+	@rm -rf $(OBJECTS_DIR_P)
+	@echo "$(NAME_P): object files were deleted"
 
 fclean: clean
-		rm -f $(NAME)
+	@rm -f $(LIBFT)
+	@echo "libft.a: $(LIBFT) was deleted"
+	@rm -f $(NAME)
+	@echo "$(NAME):was deleted"
+re:
+	@$(MAKE) fclean
+	@$(MAKE) all
 
-re: fclean all
-
-.PHONY: clean fclean all re
+.PHONY: all clean fclean re
